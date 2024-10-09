@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int            @id @default(autoincrement())
+  name          String
+  email         String         @unique
+  password      String
+  bookings      Booking[]
+  waitlistItems WaitlistItem[]
+  testimonials  Testimonial[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+}
+
+model Club {
+  id             Int      @id @default(autoincrement())
+  name           String
+  description    String?
+  sports         String[]
+  location       String?
+  municipality   Municipality? @relation(fields: [municipalityId], references: [id])
+  municipalityId Int?
+  courts         Court[]
+}
+
+model Municipality {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  clubs Club[]
+}
+
+model Court {
+  id            Int            @id @default(autoincrement())
+  name          String
+  sportType     String
+  club          Club           @relation(fields: [clubId], references: [id])
+  clubId        Int
+  bookings      Booking[]
+  waitlistItems WaitlistItem[]
+}
+
+model Booking {
+  id        Int      @id @default(autoincrement())
+  court     Court    @relation(fields: [courtId], references: [id])
+  courtId   Int
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  date      DateTime
+  startTime DateTime
+  endTime   DateTime
+  status    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model WaitlistItem {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  court     Court    @relation(fields: [courtId], references: [id])
+  courtId   Int
+  date      DateTime
+  startTime DateTime
+  endTime   DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Testimonial {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  content   String
+  rating    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

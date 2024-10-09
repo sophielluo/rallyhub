@@ -1,0 +1,66 @@
+{
+    "name": "rallyhub-client",
+    "version": "0.1.0",
+    "private": true,
+    "proxy": "http://localhost:3001",
+    "dependencies": {
+        "@emotion/react": "^11.13.3",
+        "@emotion/styled": "^11.13.0",
+        "@firebasegen/default": "file:generated/javascript/default",
+        "@mui/icons-material": "^6.1.2",
+        "@mui/material": "^6.1.2",
+        "@mui/styled-engine": "^6.1.2",
+        "@radix-ui/react-icons": "^1.3.0",
+        "@radix-ui/react-select": "^2.1.2",
+        "@radix-ui/react-separator": "^1.1.0",
+        "@radix-ui/react-tabs": "^1.1.1",
+        "@react-google-maps/api": "^2.19.3",
+        "class-variance-authority": "^0.7.0",
+        "clsx": "^2.1.1",
+        "firebase": "^10.14.0",
+        "hubspot": "^2.3.14",
+        "lucide-react": "^0.447.0",
+        "mui": "^0.0.1",
+        "nodemailer": "^6.9.15",
+        "radix-ui": "^1.0.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-hot-toast": "^2.4.1",
+        "react-icons": "^5.3.0",
+        "react-router-dom": "^6.26.2",
+        "react-scripts": "^5.0.1",
+        "react-scroll": "^1.9.0",
+        "rsuite": "^5.71.0",
+        "tailwind-merge": "^2.5.3",
+        "tailwindcss-animate": "^1.0.7"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.20",
+        "postcss": "^8.4.47",
+        "tailwindcss": "^3.4.13"
+    }
+}
